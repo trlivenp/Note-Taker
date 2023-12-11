@@ -30,7 +30,7 @@ app.post('/api/notes', (req, res) => {
     const notes = JSON.parse(fs.readFileSync('db.json', 'utf8'));
     notes.push(newNote);
     fs.writeFileSync('db.json', JSON.stringify(notes));
-    console.log('Note saved:', newNote);  // Add this line
+    console.log('Note saved:', newNote); 
     res.json(newNote);
 });
 
@@ -42,7 +42,5 @@ app.listen(PORT, () => {
 
 // Helper function to generate a unique ID
 function generateUniqueId() {
-    // You can use a library like 'uuid' to generate unique IDs
-    // For simplicity, we'll use a timestamp-based approach here
     return Date.now().toString();
 }
